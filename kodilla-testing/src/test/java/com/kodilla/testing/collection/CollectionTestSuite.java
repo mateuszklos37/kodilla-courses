@@ -28,14 +28,13 @@ public class CollectionTestSuite {
         System.out.println("Testing empty list condition");
         exterminator.exterminate(list);
         //Then
-        if(list.size()==0){
-            System.out.println("List is empty - Test ok!");
-        }
+        Assert.assertEquals(0, list.size());
     }
     @Test
     public void testOddNumbersExterminatorNormalList(){
         //Given
         ArrayList<Integer> list = new ArrayList<Integer>();
+        ArrayList<Integer> resultList = new ArrayList<Integer>();
         list.add(2);
         list.add(3);
         list.add(15);
@@ -46,11 +45,8 @@ public class CollectionTestSuite {
         list.add(90);
         OddNumbersExterminator exterminator = new OddNumbersExterminator();
         //When
-        System.out.println("Testing empty list condition");
-        exterminator.exterminate(list);
+        resultList = exterminator.exterminate(list);
         //Then
-        if(list.size()>0){
-            System.out.println("List of odd elements collected - Test ok!");
-        }
+        Assert.assertEquals(3, resultList.size());
     }
 }
