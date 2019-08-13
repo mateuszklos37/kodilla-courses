@@ -35,9 +35,9 @@ public class ShapeCollectorTestSuite {
         ShapeCollector collector1 = new ShapeCollector(circle);
         collector1.addFigure(circle);
         //When
-        ShapeCollector collector2 = new ShapeCollector(new Circle(5));
+        Shape circle2 = collector1.getFigure(0);
         //Then
-        Assert.assertEquals( collector1, collector2.getFigure(0));
+        Assert.assertEquals(circle, circle2);
     }
     //Test 3 - czy próba usunięcia nieistniejącej figury zakończy się niepowodzeniem?
     @Test
