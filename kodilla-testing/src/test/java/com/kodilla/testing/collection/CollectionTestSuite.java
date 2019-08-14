@@ -24,11 +24,12 @@ public class CollectionTestSuite {
         //Given
         ArrayList<Integer> list = new ArrayList<Integer>();
         OddNumbersExterminator exterminator = new OddNumbersExterminator();
+        ArrayList<Integer> resultList = new ArrayList<Integer>();
         //When
         System.out.println("Testing empty list condition");
-        exterminator.exterminate(list);
+        resultList = exterminator.exterminate(list);
         //Then
-        Assert.assertEquals(0, list.size());
+        Assert.assertEquals(0, resultList.size());
     }
     @Test
     public void testOddNumbersExterminatorNormalList(){
