@@ -52,11 +52,6 @@ public class BookDirectoryTestSuite {
         assertEquals(40, theListOfBooks40.size());
     }
 
-    @Test
-    public void testListBookWithConditionFragmentShorterThan3() {
-        assertTrue(false);
-    }
-
     private List<Book> generateListOfNBooks(int booksQuantity){
         List<Book> resultList = new ArrayList<Book>();
         for (int i=0; i<booksQuantity; i++){
