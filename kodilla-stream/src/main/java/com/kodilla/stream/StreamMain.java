@@ -1,17 +1,8 @@
 package com.kodilla.stream;
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.stream.Collectors;
-import java.util.List;
 import java.util.Map;
 import com.kodilla.stream.forumUser.*;
-import com.sun.xml.internal.ws.api.model.wsdl.WSDLOutput;
-
-import java.util.stream.*;
-import java.time.LocalDateTime;
-
-
-import java.util.stream.Collectors;
 
 public class StreamMain {
     public static void main(String[] args) {
