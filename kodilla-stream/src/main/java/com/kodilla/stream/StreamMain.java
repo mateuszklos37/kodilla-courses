@@ -1,20 +1,30 @@
 package com.kodilla.stream;
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.stream.Collectors;
+import java.util.List;
+import java.util.Map;
+import com.kodilla.stream.forumUser.*;
+import com.sun.xml.internal.ws.api.model.wsdl.WSDLOutput;
 
-import com.kodilla.stream.beautifier.PoemBeautifier;
-import com.kodilla.stream.lambda.*;
+import java.util.stream.*;
+import java.time.LocalDateTime;
+
+
+import java.util.stream.Collectors;
 
 public class StreamMain {
     public static void main(String[] args) {
-        //ExpressionExecutor expressionExecutor = new ExpressionExecutor();
+        Forum theForum = new Forum();
+        LocalDate dateNow = LocalDate.now();
+        Map<Integer, ForumUser> theResultMap = theForum.getList().stream().
+                filter(user->user.getSex()=='M').
+                filter(user-> (dateNow.getYear() - user.getDateOfBirth().getYear()) >= 21).
+                filter(user -> user.getNumberOfPosts()>1).
+                collect(Collectors.toMap(ForumUser::getUserID, user->user));
 
-        //expressionExecutor.executeExpression(10, 5, (a, b) -> a+b);
-        //expressionExecutor.executeExpression(10, 5, (a, b) -> a*b);
-        //expressionExecutor.executeExpression(10, 5, (b, a) -> b-a);
-        //expressionExecutor.executeExpression(10, 5, (a, b) -> a/b);
-        PoemBeautifier poemBeautifier = new PoemBeautifier();
-        poemBeautifier.beautify("text", (string -> string.toUpperCase()));
-        poemBeautifier.beautify("TEXT", (string -> string.toLowerCase()));
-        poemBeautifier.beautify("So much ...", (string -> string+ "beautiful text"));
-        poemBeautifier.beautify("Mateusz", (string -> string.substring(2,4)));
+        System.out.println("Number of elements: " + theResultMap.size());
+        theResultMap.entrySet().stream().
+                map(entry ->entry.getKey() +":"+ entry.getValue()).forEach(System.out::println);
     }
 }
