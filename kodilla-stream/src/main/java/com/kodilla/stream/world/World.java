@@ -12,8 +12,11 @@ public final class World {
     }
     public BigInteger getQuantityOfPeopleInCountries(){
         BigInteger peopleQuantity=BigInteger.ZERO;
-        return peopleQuantity =  continents.stream().flatMap(continent -> continent.getCountries().stream()
-        .map(Country::getQuantityOfPeople)).reduce(BigInteger.ZERO, (sum, current) -> sum.add(current));
+        return peopleQuantity =  continents.stream()
+                .flatMap(continent -> continent.getCountries()
+                        .stream()
+                        .map(Country::getQuantityOfPeople)).
+                        reduce(BigInteger.ZERO, (sum, current) -> sum.add(current));
     }
 
     public Set<Continent> getContinents() {
