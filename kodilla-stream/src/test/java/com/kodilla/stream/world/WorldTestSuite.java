@@ -41,6 +41,7 @@ public class WorldTestSuite {
         Assert.assertEquals(4, asia.getCountries().size());
         //Test - quantity of people on each continent
         Assert.assertEquals(europeExpected, europe.quantityPeopleOnContinent());
+        Assert.assertEquals(europeExpected, europe.quantityPeopleOnContinent());
 
     }
 

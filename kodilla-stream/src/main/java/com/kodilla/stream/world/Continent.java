@@ -6,7 +6,6 @@ import java.util.HashSet;
 import java.util.stream.Collectors;
 
 public final class Continent {
-    private BigInteger peopleOnContinent = BigInteger.ZERO;
     Set <Country> countries = new HashSet<Country>();
     public void addCountry(Country country){
         countries.add(country);
@@ -16,6 +15,7 @@ public final class Continent {
     }
 
     public BigInteger quantityPeopleOnContinent(){
+        BigInteger peopleOnContinent = BigInteger.ZERO;
         for(Country country: countries){
             peopleOnContinent = peopleOnContinent.add(country.getQuantityOfPeople());
         }
