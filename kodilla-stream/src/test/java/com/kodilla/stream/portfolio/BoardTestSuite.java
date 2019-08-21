@@ -80,26 +80,24 @@ public class BoardTestSuite {
         //Given
         Board project = prepareTestData();
         //When
-        List<TaskList> inProgress = new ArrayList<>();
-        inProgress.add(new TaskList("In progress"));
         long sumOfTasksInProgress = project.getTaskLists().stream()
-                .filter(inProgress::contains)
+                 .filter(taskList -> taskList.getName().equals("In progress"))
                 .flatMap(t -> t.getTasks().stream())
                 .count();
         System.out.println(sumOfTasksInProgress);
 
         int sumOfDaysForTasksInProgress = 0;
-        sumOfDaysForTasksInProgress = project.getTaskLists().stream()
-                .filter(inProgress::contains)
+                sumOfDaysForTasksInProgress = project.getTaskLists().stream()
+                .filter(taskList -> taskList.getName().equals("In progress"))
                 .flatMap(t -> t.getTasks().stream())
                 .map(Task :: getCreated)
                 .map(d -> LocalDate.now().getDayOfYear() - d.getDayOfYear())
-                .reduce(sumOfDaysForTasksInProgress, (sum, current) -> sum=sum +current);
+                .reduce(sumOfDaysForTasksInProgress, (sum, current) -> sum = sum + current);
         System.out.println(sumOfDaysForTasksInProgress);
-        double averageDaysOfTaskInProgress = sumOfDaysForTasksInProgress/sumOfTasksInProgress;
+        double averageDaysPerTaskInProgress = sumOfDaysForTasksInProgress/sumOfTasksInProgress;
         //Then
         Assert.assertEquals(3, sumOfTasksInProgress);
-        Assert.assertEquals(10.0, averageDaysOfTaskInProgress, 0.5);
+        Assert.assertEquals(10.0, averageDaysPerTaskInProgress, 0.5);
     }
 }
 
