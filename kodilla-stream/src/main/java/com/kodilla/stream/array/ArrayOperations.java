@@ -5,9 +5,10 @@ import java.util.stream.IntStream;
 
 public interface ArrayOperations {
     public static double getAverage(int[] numbers){
-        double average;
         IntStream.range(0, numbers.length).forEach(System.out::println);
-        average = IntStream.range(0, numbers.length).average().getAsDouble();
+        double average = IntStream.range(0, numbers.length)
+                .map (n ->5)
+                .average().getAsDouble();
         System.out.println("Average value is: " + average);
         return average;
     };

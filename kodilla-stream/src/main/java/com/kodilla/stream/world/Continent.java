@@ -10,7 +10,7 @@ public final class Continent {
     public void addCountry(Country country){
         countries.add(country);
     }
-    public Set<Country> getCountries(){
+    public Set<Country> getCountries() {
         return countries;
     }
 

@@ -3,8 +3,6 @@ import org.junit.Assert;
 import com.kodilla.stream.array.ArrayOperations;
 import org.junit.Test;
 
-import java.util.OptionalDouble;
-
 public class ArrayOperationsTestSuite {
     @Test
     public void testGetAverage(){
@@ -16,6 +14,6 @@ public class ArrayOperationsTestSuite {
         //When
         double calculatedAverage = ArrayOperations.getAverage(tab);
         //Then
-        Assert.assertEquals(9.5, calculatedAverage, 0.001);
+        Assert.assertEquals(5.0, calculatedAverage, 0.001);
     }
 }

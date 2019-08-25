@@ -30,7 +30,6 @@ public class WorldTestSuite {
         BigInteger totalQuantity =  world.getQuantityOfPeopleInCountries();
         BigInteger worldExpected = new BigInteger("2256450000");
         BigInteger europeExpected = new BigInteger("113800000");
-
         //Then
         //Test - total quantity of poeple in the world
         Assert.assertEquals(worldExpected, totalQuantity);
