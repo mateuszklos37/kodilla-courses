@@ -14,7 +14,8 @@ public class FlightFinder {
         airportsMap.put("Madrid", false);
         if (airportsMap.containsKey(flight.getArrivalAirport()) == true)
         {
-            System.out.println("From this airport travel to " + flight.getArrivalAirport() + " is: true = possible, false = impossible");
+            Boolean available = airportsMap.get(flight.getArrivalAirport());
+            System.out.println("From this airport travel to " + flight.getArrivalAirport() + " is: true = possible, false = impossible: " + available.toString().toUpperCase());
         }
         else{
             throw new RouteNotFoundException("Arrival airport doesn't exist");
