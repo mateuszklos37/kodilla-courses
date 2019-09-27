@@ -3,6 +3,7 @@ import java.time.LocalDate;
 import java.util.stream.Collectors;
 import java.util.Map;
 
+import com.kodilla.stream.beautifier.PoemBeautifier;
 import com.kodilla.stream.forumUser.*;
 import com.kodilla.stream.lambda.Add;
 import com.kodilla.stream.lambda.ExpressionExecutor;
@@ -28,5 +29,7 @@ public class StreamMain {
 //                .map(book -> book.getTitle())
 //                .collect(Collectors.joining(" ; ", "<<", ">>"));
 //        System.out.println(string);
+        PoemBeautifier poemBeautifier = new PoemBeautifier();
+//        poemBeautifier.beautify("This is kurwa text", ());
     }
 }
