@@ -4,13 +4,11 @@ public class OrderRequest {
     private User user;
     private Product product;
     private int amount;
-    private Producer producer;
 
-    public OrderRequest(User user, Product product, int amount, Producer producer) {
+    public OrderRequest(User user, Product product, int amount) {
         this.user = user;
         this.product = product;
         this.amount = amount;
-        this.producer = producer;
     }
 
     public User getUser() {
@@ -23,9 +21,5 @@ public class OrderRequest {
 
     public int getAmount() {
         return amount;
-    }
-
-    public Producer getProducer() {
-        return producer;
     }
 }
