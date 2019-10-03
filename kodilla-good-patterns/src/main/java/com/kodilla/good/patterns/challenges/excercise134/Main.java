@@ -12,17 +12,18 @@ public class Main {
     ExtraFoodShop extraFoodShop = new ExtraFoodShop();
     GlutenFreeShop glutenFreeShop = new GlutenFreeShop();
     HealthyShop healthyShop = new HealthyShop();
-    extraFoodShop.setMap(cucumber, 7);
-    extraFoodShop.setMap(onion, 2);
-    glutenFreeShop.setMap(pasta, 2);
-    glutenFreeShop.setMap(tomato, 5);
-    healthyShop.setMap(tomato, 3);
-    healthyShop.setMap(cucumber, 4);
-    OrderRequest julitasRequest = new OrderRequest(julita, cucumber, 3);
+    extraFoodShop.setMap(cucumber, 25);
+    extraFoodShop.setMap(onion, 44);
+    glutenFreeShop.setMap(pasta, 50);
+    glutenFreeShop.setMap(tomato, 53);
+    healthyShop.setMap(tomato, 32);
+    healthyShop.setMap(cucumber, 41);
+    OrderRequest julitasRequest = new OrderRequest(julita, cucumber, 7);
     OrderRequest marcinsResquest = new OrderRequest(marcin, tomato, 4);
     OrderRequest piotrRequest = new OrderRequest(piotr, onion, 5);
     extraFoodShop.process(piotrRequest);
     extraFoodShop.process(marcinsResquest);
     glutenFreeShop.process(julitasRequest);
+    healthyShop.process(julitasRequest);
     }
 }

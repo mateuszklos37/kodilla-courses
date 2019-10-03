@@ -11,8 +11,13 @@ public class GlutenFreeShop implements Producer{
 
     public void process(OrderRequest request){
         if(products.containsKey(request.getProduct())){
-            System.out.println(request.getUser().getName() + "ordered a: " + request.getProduct() + "from Gluten Free Shop");
-            System.out.println("Crew of Gluten Free Shop thanks you for your order!");
+            if(request.getAmount()> products.get(request.getProduct())){
+                System.out.println("Producer doesn't deliver such amounts");
+            }
+            else {
+                System.out.println(request.getUser().getName() + "ordered a: " + request.getProduct() + "from Gluten Free Shop");
+                System.out.println("Crew of Gluten Free Shop thanks you for your order!");
+            }
         }
         else{
             System.out.println("Producer doesn't deliver this product");
