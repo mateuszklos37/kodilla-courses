@@ -7,8 +7,6 @@ public class FlightStorage {
 
     public ArrayList<Flight> addToList(Flight flight){
         flightsList.add(flight);
-        flight.getFrom().addAirportTo(flight.getTo());
-        flight.getTo().addAirportFrom(flight.getFrom());
         return flightsList;
     }
 

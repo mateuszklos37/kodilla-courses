@@ -1,7 +1,5 @@
 package com.kodilla.good.patterns.challenges.excercise135;
 
-import java.time.LocalTime;
-
 public class Flight {
     private Airport from;
     private Airport to;

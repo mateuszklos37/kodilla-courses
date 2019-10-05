@@ -1,5 +1,7 @@
 package com.kodilla.good.patterns.challenges.excercise135;
 
+import java.util.ArrayList;
+
 public class MainFlights {
     public static void main(String args[]){
         Airport krakow = new Airport("Kraków");
@@ -28,10 +30,12 @@ public class MainFlights {
         flightStorage.addToList(flight8);
         flightStorage.addToList(flight9);
         flightStorage.addToList(flight10);
-        FlightFinder.findFlightsTo(flightStorage, warszawa);
-        FlightFinder.findFlightsFrom(flightStorage, wroclaw);
-        FlightFinder.findDirectFlight(flightStorage, wroclaw, krakow);
-        FlightFinder.findNotDirectFlight(gdansk, wroclaw);
-        FlightFinder.findNotDirectFlight(poznan, warszawa);
+        FlightFinder flightFinder = new FlightFinder(flightStorage);
+        flightFinder.findFlightsTo(warszawa);
+        flightFinder.findFlightsFrom(wroclaw);
+        flightFinder.findFlights(wroclaw, krakow);
+        flightFinder.findFlights(gdansk, wroclaw);
+        flightFinder.findFlights(poznan, warszawa);
+        flightFinder.findFlights(warszawa, poznan);
     }
 }
