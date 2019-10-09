@@ -9,8 +9,7 @@ public class Library {
     private final List<String> books = new ArrayList<>();
     private LibraryDBController libraryDBController;
 
-    @Autowired
-    public void setLibraryController(final LibraryDBController libraryDBController){
+    public Library(final LibraryDBController libraryDBController){
         this.libraryDBController = libraryDBController;
     }
 

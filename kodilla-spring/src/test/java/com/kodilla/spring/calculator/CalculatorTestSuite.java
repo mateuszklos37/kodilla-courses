@@ -11,17 +11,17 @@ import org.springframework.test.context.junit4.SpringRunner;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class CalculatorTestSuite {
-    private static int counter= 0;
+
+Calculator calculator;
+
     @Before
     public void before(){
-        counter ++;
-        System.out.println("Every single test starts like this. The number of test is: " + counter);
+        //Given
+        ApplicationContext context = new AnnotationConfigApplicationContext("com.kodilla.spring");
+        this.calculator = context.getBean(Calculator.class);
     }
     @Test
     public void testAddMethod() {
-        //Given
-        ApplicationContext context = new AnnotationConfigApplicationContext("com.kodilla.spring");
-        Calculator calculator = context.getBean(Calculator.class);
         //When
         double resultOfAdding = calculator.add(4.7, 2.3);
         //Then
@@ -29,27 +29,21 @@ public class CalculatorTestSuite {
     }
     @Test
     public void testSubtractMethod() {
-        //Given
-        ApplicationContext context = new AnnotationConfigApplicationContext("com.kodilla.spring");
-        Calculator calculator = context.getBean(Calculator.class);
+        //When
         double resultOfSubtracting = calculator.sub(4.7, 2.3);
         //Then
         Assert.assertEquals(2.4, resultOfSubtracting, 0.01);
     }
     @Test
-    public void testMultiplyMethod() {
-        //Given
-        ApplicationContext context = new AnnotationConfigApplicationContext("com.kodilla.spring");
-        Calculator calculator = context.getBean(Calculator.class);
+    public void testMultiplicationMethod() {
+        //When
         double resultOfMultiplying = calculator.mul(4.7, 2.3);
         //Then
         Assert.assertEquals(10.81, resultOfMultiplying, 0.01);
     }
     @Test
     public void testDivideMethod() {
-        //Given
-        ApplicationContext context = new AnnotationConfigApplicationContext("com.kodilla.spring");
-        Calculator calculator = context.getBean(Calculator.class);
+        //When
         try {
             double resultOfDivision = calculator.div(4.7, 2.3);
             //Then
