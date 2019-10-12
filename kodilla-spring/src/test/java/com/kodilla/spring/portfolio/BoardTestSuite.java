@@ -20,26 +20,26 @@ public class BoardTestSuite {
         //When
         TaskList toDoList = board.getToDoList();
         toDoList.addTask("Move the Safety System components");
-        String readAble = toDoList.getTask(0);
+        String toDoTask = toDoList.getTask(0);
         //Then
-        Assert.assertNotNull(readAble);
+        Assert.assertEquals("Move the Safety System components", toDoTask);
     }
     @Test
     public void testInProgressTaskAdd(){
         //When
         TaskList inProgress = board.getInProgressList();
         inProgress.addTask("Resolving Weldguide communication problem");
-        String readAble = inProgress.getTask(0);
+        String inProgressTask = inProgress.getTask(0);
         //Then
-        Assert.assertNotNull(readAble);
+        Assert.assertEquals("Resolving Weldguide communication problem", inProgressTask);
     }
     @Test
     public void testDoneTaskAdd(){
         //When
         TaskList doneList = board.getDoneList();
         doneList.addTask("Crew training");
-        String readAble = doneList.getTask(0);
+        String doneTask = doneList.getTask(0);
         //Then
-        Assert.assertNotNull(readAble);
+        Assert.assertEquals("Crew training", doneTask);
     }
 }
