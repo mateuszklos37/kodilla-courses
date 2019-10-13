@@ -14,12 +14,4 @@ public class TaskList {
         return tasks;
     }
 
-    public List<String> addTask(String task){
-        tasks.add(task);
-        return tasks;
-    }
-
-    public String getTask(int index){
-        return tasks.get(index);
-    }
 }

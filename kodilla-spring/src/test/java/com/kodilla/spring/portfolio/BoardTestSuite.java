@@ -19,8 +19,8 @@ public class BoardTestSuite {
     public void testToDoTaskAdd(){
         //When
         TaskList toDoList = board.getToDoList();
-        toDoList.addTask("Move the Safety System components");
-        String toDoTask = toDoList.getTask(0);
+        toDoList.getTasks().add("Move the Safety System components");
+        String toDoTask = toDoList.getTasks().get(0);
         //Then
         Assert.assertEquals("Move the Safety System components", toDoTask);
     }
@@ -28,8 +28,8 @@ public class BoardTestSuite {
     public void testInProgressTaskAdd(){
         //When
         TaskList inProgress = board.getInProgressList();
-        inProgress.addTask("Resolving Weldguide communication problem");
-        String inProgressTask = inProgress.getTask(0);
+        inProgress.getTasks().add("Resolving Weldguide communication problem");
+        String inProgressTask = inProgress.getTasks().get(0);
         //Then
         Assert.assertEquals("Resolving Weldguide communication problem", inProgressTask);
     }
@@ -37,8 +37,8 @@ public class BoardTestSuite {
     public void testDoneTaskAdd(){
         //When
         TaskList doneList = board.getDoneList();
-        doneList.addTask("Crew training");
-        String doneTask = doneList.getTask(0);
+        doneList.getTasks().add("Crew training");
+        String doneTask = doneList.getTasks().get(0);
         //Then
         Assert.assertEquals("Crew training", doneTask);
     }
