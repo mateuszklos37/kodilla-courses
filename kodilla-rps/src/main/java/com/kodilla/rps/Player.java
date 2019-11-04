@@ -1,5 +1,8 @@
 package com.kodilla.rps;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Player {
     private String name;
     private int numberOfWonGames = 0;
@@ -19,4 +22,7 @@ public class Player {
     public void setNumberOfWonGames() {
         this.numberOfWonGames ++;
     }
-}
+
+    public int eraseNumberOfWon(){ return numberOfWonGames = 0;}
+
+    }
