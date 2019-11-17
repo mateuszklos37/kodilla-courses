@@ -48,22 +48,22 @@ public class RpsRunner {
             }
             else
                 computersTurn = "Paper";
-            if(playersTurn.getTurn() == "N"){
+            if(playersTurn.getTurn().equals("N")){
                 player1.eraseNumberOfWon();
                 player2.eraseNumberOfWon();
                 System.out.println("Game was restarted");
                 continue;
-            } else if(playersTurn.getTurn() == "X"){
+            } else if(playersTurn.getTurn().equals("X")){
                 System.out.println("You decided to finish this game! Thank you!");
                 finishGame = true;
                 break;
-            } else if (playersTurn.getTurn() == "1" && computerTurn > 100 && computerTurn <= 200) {
+            } else if (playersTurn.getTurn().equals("1") && computerTurn > 100 && computerTurn <= 200) {
                 System.out.println(player2.getName() + " wins!");
                 player2.setNumberOfWonGames();
-            } else if (playersTurn.getTurn() == "1" && computerTurn > 200 && computerTurn <=300) {
+            } else if (playersTurn.getTurn().equals("1") && computerTurn > 200 && computerTurn <=300) {
                 System.out.println(player1.getName() + " wins!");
                 player1.setNumberOfWonGames();
-            } else if (playersTurn.getTurn() =="2" && computerTurn >= 0 && computerTurn <=100) {
+            } else if (playersTurn.getTurn().equals("2") && computerTurn >= 0 && computerTurn <=100) {
                 System.out.println(player1.getName() + " wins!");
                 player1.setNumberOfWonGames();
             } else if (playersTurn.getTurn() =="2" && computerTurn > 200 && computerTurn <=300) {
