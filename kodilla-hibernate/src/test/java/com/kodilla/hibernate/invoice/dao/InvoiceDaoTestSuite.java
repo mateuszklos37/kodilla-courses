@@ -21,15 +21,18 @@ public class InvoiceDaoTestSuite {
     public void testInvoiceDaoSave(){
         //Given
         Product tomato = new Product("Tomato");
-        Product onion = new Product("Onion");
         Product cheese = new Product("Cheese");
-        Item tomatoItem = new Item(tomato, new BigDecimal("5.99"), 2, new BigDecimal("11.98"));
-        Item onionItem = new Item(onion, new BigDecimal("4.55"), 1, new BigDecimal("4.55"));
-        Item cheeseItem = new Item(cheese, new BigDecimal("10.99"), 2, new BigDecimal("21.98"));
-        Invoice invoice = new Invoice("191119001");
-        invoice.getItems().add(tomatoItem);
+        Product onion = new Product("Onion");
+        Item cheeseItem = new Item(new BigDecimal("14.99"), 2, new BigDecimal("29.98"));
+        cheeseItem.setProduct(cheese);
+        Item onionItem = new Item(new BigDecimal("3.99"), 3, new BigDecimal("11.97"));
+        onionItem.setProduct(onion);
+        Item tomatoItem = new Item(new BigDecimal("5"), 5, new BigDecimal("25"));
+        tomatoItem.setProduct(tomato);
+        Invoice invoice = new Invoice("1911001");
         invoice.getItems().add(cheeseItem);
         invoice.getItems().add(onionItem);
+        invoice.getItems().add(tomatoItem);
         cheeseItem.setInvoice(invoice);
         onionItem.setInvoice(invoice);
         tomatoItem.setInvoice(invoice);
@@ -39,6 +42,6 @@ public class InvoiceDaoTestSuite {
         //Then
         Assert.assertNotEquals(0, id);
         //CleanUp
-        //invoiceDao.deleteById(id);
+//        invoiceDao.deleteById(id);
     }
 }
