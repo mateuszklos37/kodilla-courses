@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 
 import javax.transaction.Transactional;
 
-@Transactional
-@Repository
-public interface ItemDao extends CrudRepository<Item, Integer> {
+//@Transactional
+//@Repository
+public interface ItemDao /*extends CrudRepository<Item, Integer> */{
 }

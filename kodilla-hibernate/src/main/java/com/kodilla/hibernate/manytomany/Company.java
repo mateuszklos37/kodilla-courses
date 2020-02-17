@@ -10,6 +10,11 @@ import java.util.List;
         query = "SELECT * FROM COMPANIES WHERE SUBSTRING(COMPANY_NAME, 1, 3) = :NAME",
         resultClass = Company.class
 )
+@NamedNativeQuery(
+        name = "Company.searchByPartOfName",
+        query = "SELECT * FROM COMPANIES WHERE COMPANY_NAME LIKE '%ware%'",
+        resultClass = Company.class
+)
 @Entity
 @Table(name="COMPANIES")
 public class Company {
