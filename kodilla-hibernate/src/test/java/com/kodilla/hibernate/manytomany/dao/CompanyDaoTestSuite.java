@@ -11,13 +11,13 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.List;
 
-@RunWith(SpringRunner.class)
-@SpringBootTest
+//@RunWith(SpringRunner.class)
+//@SpringBootTest
 public class CompanyDaoTestSuite {
-    @Autowired
-    CompanyDao companyDao;
-    @Autowired
-    EmployeeDao employeeDao;
+//    @Autowired
+//    CompanyDao companyDao;
+//    @Autowired
+//    EmployeeDao employeeDao;
 //
 //    @Test
 //    public void testSaveManyToMany(){
@@ -64,46 +64,46 @@ public class CompanyDaoTestSuite {
 //            //do nothing
 //        }
 //    }
-    @Test
-    public void testQueries(){
-        //Given
-        Employee johnSmith = new Employee("John", "Smith");
-        Employee stephanieClarckson = new Employee("Stephanie", "Clarckson");
-        Employee lindaKovalsky = new Employee("Linda", "Kovalsky");
-
-        Company softwareMachine = new Company("Software Machine");
-        Company dataMaesters = new Company("Data Maesters");
-        Company greyMatter = new Company("Grey Matter");
-
-        companyDao.save(softwareMachine);
-        int softwareMachineId = softwareMachine.getId();
-
-        employeeDao.save(johnSmith);
-        int johnSmithId = johnSmith.getId();
-
-        employeeDao.save(stephanieClarckson);
-        int clarcksonId = stephanieClarckson.getId();
-
-        //When
-        List<Company> companiesStartingWith = companyDao.searchCompaniesStartingWith("Sof");
-        List<Employee> employeesWithNameSmith = employeeDao.searchByLastname("Smith");
-        List<Employee> employeesWithNameKlos = employeeDao.searchByLastname("Klos");
-        List<Company> companyFoundByPartOfName = companyDao.searchByPartOfName();
-        for (Company company: companyFoundByPartOfName){
-            System.out.println(company.getName());
-        }
-        List<Employee> employeesFoundByPartOfLastname = employeeDao.searchByPartOfName();
-        for (Employee employee: employeesFoundByPartOfLastname){
-            System.out.println(employee.getLastname() + employee.getFirstname());
-        }
-        //Then
-        Assert.assertEquals(1, companiesStartingWith.size());
-        Assert.assertEquals(1, employeesWithNameSmith.size());
-        Assert.assertEquals(0, employeesWithNameKlos.size());
-
-//        //CleanUp
-        companyDao.deleteById(softwareMachineId);
-        employeeDao.deleteById(johnSmithId);
-        employeeDao.deleteById(clarcksonId);
-    }
+//    @Test
+//    public void testQueries(){
+//        //Given
+//        Employee johnSmith = new Employee("John", "Smith");
+//        Employee stephanieClarckson = new Employee("Stephanie", "Clarckson");
+//        Employee lindaKovalsky = new Employee("Linda", "Kovalsky");
+//
+//        Company softwareMachine = new Company("Software Machine");
+//        Company dataMaesters = new Company("Data Maesters");
+//        Company greyMatter = new Company("Grey Matter");
+//
+//        companyDao.save(softwareMachine);
+//        int softwareMachineId = softwareMachine.getId();
+//
+//        employeeDao.save(johnSmith);
+//        int johnSmithId = johnSmith.getId();
+//
+//        employeeDao.save(stephanieClarckson);
+//        int clarcksonId = stephanieClarckson.getId();
+//
+//        //When
+//        List<Company> companiesStartingWith = companyDao.searchCompaniesStartingWith("Sof");
+//        List<Employee> employeesWithNameSmith = employeeDao.searchByLastname("Smith");
+//        List<Employee> employeesWithNameKlos = employeeDao.searchByLastname("Klos");
+//        List<Company> companyFoundByPartOfName = companyDao.searchByPartOfName();
+//        for (Company company: companyFoundByPartOfName){
+//            System.out.println(company.getName());
+//        }
+//        List<Employee> employeesFoundByPartOfLastname = employeeDao.searchByPartOfName();
+//        for (Employee employee: employeesFoundByPartOfLastname){
+//            System.out.println(employee.getLastname() + employee.getFirstname());
+//        }
+//        //Then
+//        Assert.assertEquals(1, companiesStartingWith.size());
+//        Assert.assertEquals(1, employeesWithNameSmith.size());
+//        Assert.assertEquals(0, employeesWithNameKlos.size());
+//
+////        //CleanUp
+//        companyDao.deleteById(softwareMachineId);
+//        employeeDao.deleteById(johnSmithId);
+//        employeeDao.deleteById(clarcksonId);
+//    }
 }
