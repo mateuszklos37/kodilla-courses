@@ -7,9 +7,9 @@ import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 
-public interface EmployeeDao/* extends CrudRepository<Employee, Integer> */{
-//    @Query
-//    List<Employee> searchByLastname(@Param("LASTNAME") String lastname);
-//    @Query(nativeQuery = true)
-//    List<Employee> searchByPartOfName();
+public interface EmployeeDao extends CrudRepository<Employee, Integer>{
+    @Query
+    List<Employee> searchByLastname(@Param("LASTNAME") String lastname);
+    @Query(nativeQuery = true)
+    List<Employee> searchByPartOfName();
 }
