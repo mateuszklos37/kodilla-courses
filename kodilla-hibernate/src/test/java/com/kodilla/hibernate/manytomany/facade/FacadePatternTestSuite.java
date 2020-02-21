@@ -29,9 +29,23 @@ public class FacadePatternTestSuite {
     @Autowired
     EmployeeDao employeeDao;
 
-    @After
-    public void after(){
+    private List<Integer> employeesId = new ArrayList<>();
+    private List<Integer> companiesId = new ArrayList<>();
 
+    @After
+    public void deleteCreatedEmployees(){
+        if(!employeesId.isEmpty()) {
+            employeesId.forEach(id -> employeeDao.deleteById(id));
+        }
+        this.employeesId.clear();
+    }
+
+    @After
+    public void deleteCreatedCompanies(){
+        if(!companiesId.isEmpty()) {
+            companiesId.forEach(id -> companyDao.deleteById(id));
+        }
+        this.companiesId.clear();
     }
 
     @Test
@@ -48,12 +62,15 @@ public class FacadePatternTestSuite {
 
         companyDao.save(softwareMachine);
         int softwareMachineId = softwareMachine.getId();
+        companiesId.add(softwareMachineId);
 
         employeeDao.save(johnSmith);
         int johnSmithId = johnSmith.getId();
+        employeesId.add(johnSmithId);
 
         employeeDao.save(stephanieClarckson);
         int clarcksonId = stephanieClarckson.getId();
+        employeesId.add(clarcksonId);
 
         //When
         try {
@@ -63,11 +80,6 @@ public class FacadePatternTestSuite {
 
         //Then
         Assert.assertEquals(2, resultsList.size());
-
-        //CleanUp
-        companyDao.deleteById(softwareMachineId);
-        employeeDao.deleteById(johnSmithId);
-        employeeDao.deleteById(clarcksonId);
     }
 
     @Test
@@ -84,9 +96,11 @@ public class FacadePatternTestSuite {
 
         companyDao.save(dataMaesters);
         int dataMaestersId = dataMaesters.getId();
+        companiesId.add(dataMaestersId);
 
         employeeDao.save(johnSmith);
         int johnSmithId = johnSmith.getId();
+        employeesId.add(johnSmithId);
 
         //When
         try {
@@ -96,8 +110,5 @@ public class FacadePatternTestSuite {
         }
         //Then
         Assert.assertEquals(0, resultsList.size());
-        //CleanUp
-        companyDao.deleteById(dataMaestersId);
-        employeeDao.deleteById(johnSmithId);
     }
 }
