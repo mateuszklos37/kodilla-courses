@@ -1,0 +1,1 @@
+SELECT * FROM kodilla_course.rents;
